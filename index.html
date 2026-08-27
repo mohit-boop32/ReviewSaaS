@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Owner Dashboard</title>
+    <!-- QR Code Library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+    <style>
+        body { font-family: Arial; padding: 20px; background: #f4f4f9; }
+        input, button { width: 100%; padding: 12px; margin: 8px 0; border-radius: 8px; border: 1px solid #ccc; }
+        button { background: #2563eb; color: white; font-weight: bold; }
+        #qrcode { margin-top: 20px; display: flex; justify-content: center; }
+    </style>
+</head>
+<body>
+
+    <h2>Restaurant Login (No OTP)</h2>
+    <input type="text" id="shopName" placeholder="Restaurant/Cafe Name">
+    <input type="number" id="phone" placeholder="Phone Number">
+    <input type="password" id="password" placeholder="Password">
+    
+    <h3>Link Google Review</h3>
+    <input type="url" id="googleLink" placeholder="Paste Google My Business Link Here">
+    <button onclick="generateQR()">Generate My QR Code</button>
+
+    <div id="qrcode"></div>
+
+    <script>
+        function generateQR() {
+            const link = document.getElementById('googleLink').value;
+            if(!link) {
+                alert("Please paste your Google link first!");
+                return;
+            }
+            
+            // Yahan 'YOUR_WEBSITE_URL' ko apne live link se replace karna hoga baad me
+            const customerPageUrl = "https://YOUR_WEBSITE_URL/scan.html?link=" + encodeURIComponent(link);
+            
+            document.getElementById("qrcode").innerHTML = "";
+            new QRCode(document.getElementById("qrcode"), {
+                text: customerPageUrl,
+                width: 200,
+                height: 200
+            });
+        }
+    </script>
+</body>
+</html>

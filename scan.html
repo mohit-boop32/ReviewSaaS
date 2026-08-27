@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Give a Review</title>
+    <style>
+        body { font-family: Arial; padding: 20px; background: #fff; text-align: center; }
+        .review-card { 
+            background: #f8fafc; padding: 15px; margin: 10px 0; 
+            border: 1px solid #e2e8f0; border-radius: 8px; cursor: pointer;
+        }
+        .review-card:active { background: #e2e8f0; }
+    </style>
+</head>
+<body>
+
+    <h2>Tap to Select a Review</h2>
+    <p>The review will be copied automatically, just paste it on Google!</p>
+
+    <div id="reviews-container"></div>
+
+    <script>
+        // Yahan tum apne 10-20 professional reviews daal sakte ho
+        const reviews = [
+            "Absolutely loved the vibe here! The food was fresh, and the staff was super friendly. Highly recommended.",
+            "Great place to hang out with friends. The coffee is amazing and the service is very quick. 5 stars!",
+            "One of the best cafes in town. The ambiance is so relaxing and the pasta was perfectly cooked.",
+            "Excellent customer service and a very clean environment. Will definitely be visiting again soon!"
+            // Aise hi 15-20 aur lines add kar lena
+        ];
+
+        const container = document.getElementById("reviews-container");
+
+        reviews.forEach(text => {
+            let div = document.createElement("div");
+            div.className = "review-card";
+            div.innerText = text;
+            div.onclick = () => copyAndRedirect(text);
+            container.appendChild(div);
+        });
+
+        function copyAndRedirect(text) {
+            // Clipboard me copy karne ka code
+            navigator.clipboard.writeText(text).then(() => {
+                // URL se owner ka Google link nikalna
+                const urlParams = new URLSearchParams(window.location.search);
+                const gLink = urlParams.get('link');
+                
+                if(gLink) {
+                    window.location.href = gLink; // Google page par bhejo
+                } else {
+                    alert("Google link is missing!");
+                }
+            }).catch(() => {
+                alert("Copy fail hua, manually copy karein.");
+            });
+        }
+    </script>
+</body>
+</html>
