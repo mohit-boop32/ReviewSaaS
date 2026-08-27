@@ -2,47 +2,61 @@
 <html lang="en">
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Owner Dashboard</title>
-    <!-- QR Code Library -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+    <title>Just1Tap-Boost Your Google Reviews</title>
     <style>
-        body { font-family: Arial; padding: 20px; background: #f4f4f9; }
-        input, button { width: 100%; padding: 12px; margin: 8px 0; border-radius: 8px; border: 1px solid #ccc; }
-        button { background: #2563eb; color: white; font-weight: bold; }
-        #qrcode { margin-top: 20px; display: flex; justify-content: center; }
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            /* Ek premium blue gradient background */
+            background: linear-gradient(135deg, #0f172a, #3b82f6); 
+            color: white;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .container {
+            padding: 20px;
+            max-width: 600px;
+        }
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+        p {
+            font-size: 1.1rem;
+            margin-bottom: 30px;
+            line-height: 1.5;
+            color: #e0f2fe;
+        }
+        .btn {
+            background: #f59e0b; /* Catchy Orange/Yellow Button */
+            color: #fff;
+            font-size: 1.1rem;
+            font-weight: bold;
+            padding: 15px 25px;
+            text-decoration: none;
+            border-radius: 50px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+            display: inline-block;
+        }
+        .btn:active {
+            background: #d97706;
+        }
     </style>
 </head>
 <body>
 
-    <h2>Restaurant Login (No OTP)</h2>
-    <input type="text" id="shopName" placeholder="Restaurant/Cafe Name">
-    <input type="number" id="phone" placeholder="Phone Number">
-    <input type="password" id="password" placeholder="Password">
-    
-    <h3>Link Google Review</h3>
-    <input type="url" id="googleLink" placeholder="Paste Google My Business Link Here">
-    <button onclick="generateQR()">Generate My QR Code</button>
+    <div class="container">
+        <h1>Just 1 Tap 🚀</h1>
+        <p>The fastest zero-friction QR system for restaurants and cafes. Turn your happy customers into 5-star Google reviews in just one tap!</p>
+        
+        <!-- Yeh button directly tumhare dashboard.html par le jayega -->
+        <a href="dashboard.html" class="btn">Register for Getting your Google Review Qr</a>
+    </div>
 
-    <div id="qrcode"></div>
-
-    <script>
-        function generateQR() {
-            const link = document.getElementById('googleLink').value;
-            if(!link) {
-                alert("Please paste your Google link first!");
-                return;
-            }
-            
-            // Yahan 'YOUR_WEBSITE_URL' ko apne live link se replace karna hoga baad me
-            const customerPageUrl = "https://mohit-boop32.github.io/ReviewSaaS/scan.html?link=" + encodeURIComponent(link);
-            
-            document.getElementById("qrcode").innerHTML = "";
-            new QRCode(document.getElementById("qrcode"), {
-                text: customerPageUrl,
-                width: 200,
-                height: 200
-            });
-        }
-    </script>
 </body>
 </html>
