@@ -1,62 +1,134 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Just1Tap-Boost Your Google Reviews</title>
+    <title>1 Tap - Boost Google Reviews</title>
+    <!-- Google Fonts se modern Poppins font import kiya hai -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
     <style>
+        /* Basic Setup */
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
+        
+        /* Animated Dark Gradient Background */
         body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            /* Ek premium blue gradient background */
-            background: linear-gradient(135deg, #0f172a, #3b82f6); 
-            color: white;
-            text-align: center;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
+            background: linear-gradient(-45deg, #0f172a, #1e1b4b, #312e81, #000000);
+            background-size: 400% 400%;
+            animation: gradientBG 15s ease infinite;
             height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #ffffff;
+            overflow: hidden;
+            position: relative;
         }
-        .container {
-            padding: 20px;
-            max-width: 600px;
+
+        @keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
         }
+
+        /* Premium Glassmorphism Card */
+        .glass-card {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 24px;
+            padding: 40px 25px;
+            max-width: 90%;
+            width: 380px;
+            text-align: center;
+            box-shadow: 0 25px 45px rgba(0, 0, 0, 0.5);
+            animation: float 6s ease-in-out infinite;
+            z-index: 10;
+        }
+
+        /* Floating Animation */
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+
+        /* Gradient App Name */
         h1 {
-            font-size: 2.5rem;
+            font-size: 3.5rem;
+            font-weight: 800;
             margin-bottom: 10px;
+            background: linear-gradient(to right, #a855f7, #ec4899, #3b82f6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            letter-spacing: -2px;
         }
+
         p {
-            font-size: 1.1rem;
-            margin-bottom: 30px;
-            line-height: 1.5;
-            color: #e0f2fe;
+            font-size: 1rem;
+            color: #94a3b8;
+            margin-bottom: 35px;
+            line-height: 1.6;
         }
+
+        /* Neon Glowing Button */
         .btn {
-            background: #f59e0b; /* Catchy Orange/Yellow Button */
-            color: #fff;
-            font-size: 1.1rem;
-            font-weight: bold;
-            padding: 15px 25px;
-            text-decoration: none;
-            border-radius: 50px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.3);
             display: inline-block;
+            background: linear-gradient(135deg, #8b5cf6, #d946ef);
+            color: white;
+            font-weight: 600;
+            font-size: 1.1rem;
+            padding: 16px 32px;
+            border-radius: 50px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 25px -10px #d946ef;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            width: 100%;
         }
-        .btn:active {
-            background: #d97706;
+
+        .btn:hover {
+            transform: translateY(-3px) scale(1.02);
+            box-shadow: 0 15px 30px -10px #d946ef;
+            border: 1px solid rgba(255, 255, 255, 0.6);
+        }
+
+        /* Background Aesthetic Orbs */
+        .orb {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(90px);
+            z-index: 1;
+        }
+        .orb-1 {
+            width: 300px; height: 300px;
+            background: rgba(139, 92, 246, 0.4);
+            top: -100px; left: -100px;
+        }
+        .orb-2 {
+            width: 250px; height: 250px;
+            background: rgba(236, 72, 153, 0.3);
+            bottom: -50px; right: -50px;
         }
     </style>
 </head>
 <body>
 
-    <div class="container">
-        <h1>Just 1 Tap 🚀</h1>
-        <p>The fastest zero-friction QR system for restaurants and cafes. Turn your happy customers into 5-star Google reviews in just one tap!</p>
+    <!-- Background Glow Orbs -->
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+
+    <!-- Main Glass Card -->
+    <div class="glass-card">
+        <!-- Agar tumne apna logo banaya hai toh usko niche wali line se laga sakte ho -->
+        <!-- <img src="logo.png" alt="1 Tap Logo" style="width: 80px; margin-bottom: 10px; border-radius: 20px;"> -->
         
-        <!-- Yeh button directly tumhare dashboard.html par le jayega -->
-        <a href="dashboard.html" class="btn">Register for Getting your Google Review Qr</a>
+        <h1>1 Tap</h1>
+        <p>The fastest zero-friction QR system for restaurants and cafes. Turn happy customers into 5-star Google reviews instantly!</p>
+        
+        <a href="dashboard.html" class="btn">Get Your Google Review QR ✨</a>
     </div>
 
 </body>
 </html>
+
